@@ -2,7 +2,7 @@
     width: 500px;
     height: 600px;
     margin: auto;
-    background-color: rgba(43, 144, 226, 0.715);
+    background-color: rgba(43, 226, 128, 0.715);
     border-radius: 20px;
     border: 2px solid black;
     display: flex;
@@ -27,6 +27,9 @@
     justify-content: space-around;
     margin-bottom: 10px;
 }
+.calc_line:first-child{
+    position: relative;
+}
 .calc_numb{
     font-size: 80px;
     display: flex;
@@ -38,4 +41,7 @@
     cursor: pointer;
 }
 
-
+.calc_numb_ac{
+    font-size: 20px;
+    margin-left: 16px;
+}
