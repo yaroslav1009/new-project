@@ -1,7 +1,7 @@
 let inputElement = document.getElementById("search");
 let buttons = document.querySelectorAll(".calc_numb")
-let a = '';
-let b = '';
+let firstNumb = '';
+let secondNumb = '';
 let sign ='';
 let finish = false;
 inputElement.setAttribute("value", 0);
@@ -10,8 +10,8 @@ const digit = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.'];
 const action = ['-', '+', '/', 'x'];
 
 function clearAll(){
-  a = '';
-  b = '';
+  firstNumb = '';
+  secondNumb = '';
   sign = '';
   finish = false;
   inputElement.setAttribute("value", 0);
@@ -24,47 +24,49 @@ buttons.forEach(function(buttons){
     let buttonValue =this.textContent
 
     if (digit.includes(buttonValue)){
-      if(b === '' && sign === ''){
-        a+=buttonValue
-        inputElement.setAttribute("value", a);
+      if(secondNumb === '' && sign === ''){
+        firstNumb+=buttonValue
+        inputElement.setAttribute("value", firstNumb);
       } 
-      else if(a!=='' && b!=='' && finish){
-        
+      else if(firstNumb!=='' && secondNumb!=='' && finish){
+        secondNumb = buttonValue;
+        finish = false;
+        inputElement.setAttribute("value", secondNumb);
       }
       else {
-        b += buttonValue
-        inputElement.setAttribute("value", b);
+        secondNumb += buttonValue
+        inputElement.setAttribute("value", secondNumb);
       }
-      console.log(a, b, sign)
+      console.log(firstNumb, secondNumb, sign)
       return; 
     }
 
 
     if(buttonValue === '='){
-      if (b === '') b = a;
+      if (secondNumb === '') secondNumb = firstNumb;
       switch (sign) {
         case "+":
-          a = (+a)+(+b) 
+          firstNumb = (+firstNumb)+(+secondNumb) 
           break;
         case "-":
-          a = a - b 
+          firstNumb = firstNumb - secondNumb 
         break;
-        case "*":
-          a = a * b 
+        case "x":
+          firstNumb = firstNumb * secondNumb 
         break;
         case "/":
-          a = a / b 
+          firstNumb = firstNumb / secondNumb 
         break;
       }
       finish=true
-      inputElement.setAttribute("value", a)
-      console.log(a, b, sign)
+      inputElement.setAttribute("value", firstNumb)
+      console.log(firstNumb, secondNumb, sign)
     }
 
     if (action.includes(buttonValue)){
       sign = buttonValue
       inputElement.setAttribute("value", sign);
-      console.log(a, b, sign)
+      console.log(firstNumb, secondNumb, sign)
     }
   })
 })
