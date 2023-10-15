@@ -1,7 +1,7 @@
 .calc{
     width: 500px;
     height: 600px;
-    margin: firstNumb uto;
+    margin: auto;
     background-color: rgba(43, 226, 128, 0.715);
     border-radius: 20px;
     border: 2px solid black;
@@ -11,7 +11,7 @@
 }
 .calc_answer{
     display: flex;
-    firstNumb lign-items: center;
+    align-items: center;
     justify-content: center;
     margin-bottom: 60px;
 }
@@ -23,7 +23,7 @@
 }
 .calc_line{
     display: flex;
-    firstNumb lign-items: center;
+    align-items: center;
     justify-content: space-around;
     margin-bottom: 10px;
 }
@@ -33,7 +33,7 @@
 .calc_numb{
     font-size: 80px;
     display: flex;
-    firstNumb lign-items: center;
+    align-items: center;
     justify-content: center;
     width: 90px;
     background-color: rgb(247, 192, 11);
